@@ -4,8 +4,9 @@ from . import views
 
 urlpatterns = [
     # path('', views.preProcesing)
-    path('', views.first_view, name='first_view'),
-    path('second/', views.second_view, name='second_view'),
-    path('third/', views.third_view, name='third_view'),
-    path('result/', views.preProcessing, name='result')
+    path('', views.Welcome, name='Welcome'),
+    path('second/', views.first_view, name='first_view'),
+    path('third/', views.second_view, name='second_view'),
+    path('fourth/', views.third_view, name='third_view'),
+    # path('result/', views.result_view, name='result_view')
 ]

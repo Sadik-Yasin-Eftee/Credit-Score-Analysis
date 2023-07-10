@@ -75,8 +75,7 @@ def first_view(request):
         typeOfLoan = request.POST.get('Type_of_Loan')
         numOfLoan = np.float64(request.POST.get('Num_of_Loan'))
         interestRate = np.float64(request.POST.get('Interest_Rate'))
-        return redirect('second_view')
-    return render(request, 'first.html')
+    return render(request, 'second.html')
 
 
 def second_view(request):
@@ -97,8 +96,7 @@ def second_view(request):
         amountInvestedMonthly = np.float64(
             request.POST.get('Amount_invested_monthly'))
         monthlyBalance = np.float64(request.POST.get('Monthly_Balance'))
-        return redirect('third_view')
-    return render(request, 'second.html')
+    return render(request, 'third.html')
 
 
 def third_view(request):
@@ -108,13 +106,15 @@ def third_view(request):
         creditMix = request.POST.get('Credit_Mix')
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
         paymentBehavior = request.POST.get('Payment_Behaviour')
-        preProcessing()
-        redirect('result_view')
-    return render(request, 'third.html')
+        creditScore = preProcessing()
+        # redirect('result_view')
+    return render(request, 'fourth.html', {
+        "result": creditScore
+    })
 
 
-def result_view(request):
-    return None
+# def result_view(request):
+#     return render(request, 'result.html')
 
 
 def preProcessing():
@@ -207,7 +207,7 @@ def preProcessing():
                         monthlyBalance=monthlyBalance,
                         creditScore=y_pred)
     data.save()
-    return None
+    return y_pred
     # return render(request, 'result.html')
 
 # def predictor():
