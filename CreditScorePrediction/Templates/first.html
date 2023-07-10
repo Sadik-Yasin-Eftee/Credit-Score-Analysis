@@ -1,0 +1,177 @@
+<!-- first.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <title>Credit Score First Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>Credit Score Form</header>
+
+      <form action="{% url 'first_view' %}" method="POST">
+        {% csrf_token %}
+        <div class="form first">
+          <div class="details personal">
+            <span class="title">Customer Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="Name"
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="age">Age</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="Age"
+                  placeholder="Enter age"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="occupation">Occupation</label>
+                <input
+                  type="text"
+                  id="occupation"
+                  name="Occupation"
+                  placeholder="Enter occupation"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="details ID">
+            <span class="title">Identity Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Month</label>
+                <input
+                  type="month"
+                  id="month"
+                  name="Month"
+                  placeholder="Enter month"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="ssn">SSN</label>
+                <input
+                  type="text"
+                  id="ssn"
+                  name="SSN"
+                  placeholder="Enter SSN number"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="num_bank_accounts">Number of Bank Account</label>
+                <input
+                  type="number"
+                  id="num_bank_accounts"
+                  name="Num_Bank_Accounts"
+                  placeholder="Enter number of bank account"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="num_credit_card">Credit Card Number</label>
+                <input
+                  type="number"
+                  id="num_credit_card"
+                  name="Num_Credit_Card"
+                  placeholder="Enter credit card no"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="annual_income">Annual Income</label>
+                <input
+                  type="number"
+                  id="annual_income"
+                  name="Annual_Income"
+                  placeholder="Enter annual income"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="monthly_inhald_salary">Monthly Inhand Salary</label>
+                <input
+                  type="number"
+                  id="monthly_inhald_salary"
+                  name="Monthly_Inhald_Salary"
+                  placeholder="Enter monthly inhand salary"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="type_of_loan">Loan Type</label>
+                <input
+                  type="text"
+                  id="type_of_loan"
+                  name="Type_of_Loan"
+                  placeholder="Enter loan type"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="num_of_loan">Loan Number</label>
+                <input
+                  type="number"
+                  id="num_of_loan"
+                  name="Num_of_Loan"
+                  placeholder="Enter loan number"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="interest_rate">Interest Rate</label>
+                <input
+                  type="number"
+                  id="interest_rate"
+                  name="Interest_Rate"
+                  placeholder="Enter interest rate"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="nextBtn">
+              <span class="btnText">Next</span>
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

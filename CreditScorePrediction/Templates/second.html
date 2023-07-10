@@ -1,0 +1,159 @@
+<!-- second.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'second.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <title>Credit Score Second Page</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>Credit Score Form</header>
+
+      <form action="{% url 'second_view' %}" method="POST">
+        {% csrf_token %}
+        <div class="form second">
+          <div class="details address">
+            <div class="fields">
+              <div class="input-field">
+                <label for="delay_from_due_date">Delay from due Date</label>
+                <input
+                  type="number"
+                  id="delay_from_due_date"
+                  name="Delay_from_due_date"
+                  placeholder="Enter delayed number"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="num_of_delayed_payment">Delayed Payment</label>
+                <input
+                  type="number"
+                  id="num_of_delayed_payment"
+                  name="Num_of_Delayed_Payment"
+                  placeholder="Enter delayed payment"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="changed_credit_limit">Changed Credit Limit</label>
+                <input
+                  type="number"
+                  id="changed_credit_limit"
+                  name="Changed_Credit_Limit"
+                  placeholder="Enter changed credit limit"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="num_credit_inquiries">Credit Inquiry Number</label>
+                <input
+                  type="number"
+                  id="num_credit_inquiries"
+                  name="Num_Credit_Inquiries"
+                  placeholder="Enter credit inquiry number"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="outstanding_debt">Outstanding Debt</label>
+                <input
+                  type="number"
+                  id="outstanding_debt"
+                  name="Outstanding_Debt"
+                  placeholder="Enter outstanding debt"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="credit_utilization_ratio"
+                  >Credit Utilization Ratio</label
+                >
+                <input
+                  type="number"
+                  id="credit_utilization_ratio"
+                  name="Credit_Utilization_Ratio"
+                  placeholder="Enter credit utilization ratio"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="credit_history_age">Credit History Age</label>
+                <input
+                  type="text"
+                  id="credit_history_age"
+                  name="Credit_History_Age"
+                  placeholder="Enter credit history age"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="total_emi_per_month">Total EMI Per Month</label>
+                <input
+                  type="number"
+                  id="total_emi_per_month"
+                  name="Total_EMI_per_month"
+                  placeholder="Enter total EMI per month"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="amount_invested_monthly"
+                  >Monthly Invested Amount</label
+                >
+                <input
+                  type="number"
+                  id="amount_invested_monthly"
+                  name="Amount_invested_monthly"
+                  placeholder="Enter monthly invested amount"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label for="monthly_balance">Monthly Balance</label>
+                <input
+                  type="number"
+                  id="monthly_balance"
+                  name="Monthly_Balance"
+                  placeholder="Enter monthly balance"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <div class="backBtn">
+              <i class="uil uil-navigator"></i>
+              <span class="btnText">Back</span>
+            </div>
+
+            <button type="submit" class="next">
+              <span class="btnText">Next</span>
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

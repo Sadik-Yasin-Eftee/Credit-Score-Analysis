@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome Sadik!</h1>
+    <form action="{% url 'result' %}" method="">
+      <!-- <label for="Customer_ID">Customer ID:</label><br />
+      <input type="text" name="Customer_ID" id="Customer_ID" required /><br /> -->
+
+      <label for="Month">Month:</label><br />
+      <select name="Month" id="Month" required>
+        <option value="">Select Month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option></select
+      ><br />
+
+      <label for="Name">Name:</label><br />
+      <input type="text" name="Name" id="Name" required /><br />
+
+      <label for="Age">Age:</label><br />
+      <input type="number" name="Age" id="Age" step="1" required /><br />
+
+      <label for="SSN">SSN:</label><br />
+      <input type="text" name="SSN" id="SSN" required /><br />
+
+      <label for="Occupation">Occupation:</label><br />
+      <input type="text" name="Occupation" id="Occupation" required /><br />
+
+      <label for="Annual_Income">Annual Income:</label><br />
+      <input
+        type="number"
+        name="Annual_Income"
+        id="Annual_Income"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Monthly_Inhald_Salary">Monthly Inhald Salary:</label><br />
+      <input
+        type="number"
+        name="Monthly_Inhald_Salary"
+        id="Monthly_Inhald_Salary"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Num_Bank_Accounts">Number of Bank Accounts:</label><br />
+      <input
+        type="number"
+        name="Num_Bank_Accounts"
+        id="Num_Bank_Accounts"
+        step="1"
+        required
+      /><br />
+
+      <label for="Num_Credit_Card">Number of Credit Cards:</label><br />
+      <input
+        type="number"
+        name="Num_Credit_Card"
+        id="Num_Credit_Card"
+        step="1"
+        required
+      /><br />
+
+      <label for="Interest_Rate">Interest Rate:</label><br />
+      <input
+        type="number"
+        name="Interest_Rate"
+        id="Interest_Rate"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Num_of_Loan">Number of Loans:</label><br />
+      <input
+        type="number"
+        name="Num_of_Loan"
+        id="Num_of_Loan"
+        step="1"
+        required
+      /><br />
+
+      <label for="Type_of_Loan">Type of Loan:</label><br />
+      <input type="text" name="Type_of_Loan" id="Type_of_Loan" required /><br />
+
+      <label for="Delay_from_due_date">Delay from Due Date:</label><br />
+      <input
+        type="number"
+        name="Delay_from_due_date"
+        id="Delay_from_due_date"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Num_of_Delayed_Payment">Number of Delayed Payments:</label
+      ><br />
+      <input
+        type="number"
+        name="Num_of_Delayed_Payment"
+        id="Num_of_Delayed_Payment"
+        step="1"
+        required
+      /><br />
+
+      <label for="Changed_Credit_Limit">Changed Credit Limit:</label><br />
+      <input
+        type="number"
+        name="Changed_Credit_Limit"
+        id="Changed_Credit_Limit"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Num_Credit_Inquiries">Number of Credit Inquiries:</label
+      ><br />
+      <input
+        type="number"
+        name="Num_Credit_Inquiries"
+        id="Num_Credit_Inquiries"
+        step="1"
+        required
+      /><br />
+
+      <label for="Credit_Mix">Credit Mix:</label><br />
+      <input type="text" name="Credit_Mix" id="Credit_Mix" required /><br />
+
+      <label for="Outstanding_Debt">Outstanding Debt:</label><br />
+      <input
+        type="number"
+        name="Outstanding_Debt"
+        id="Outstanding_Debt"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Credit_Utilization_Ratio">Credit Utilization Ratio:</label
+      ><br />
+      <input
+        type="number"
+        name="Credit_Utilization_Ratio"
+        id="Credit_Utilization_Ratio"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Credit_History_Age">Credit History Age:</label><br />
+      <input
+        type="text"
+        name="Credit_History_Age"
+        id="Credit_History_Age"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Payment_of_Min_Amount">Payment of Minimum Amount:</label
+      ><br />
+      <input
+        type="text"
+        name="Payment_of_Min_Amount"
+        id="Payment_of_Min_Amount"
+        required
+      /><br />
+
+      <label for="Total_EMI_per_month">Total EMI per month:</label><br />
+      <input
+        type="number"
+        name="Total_EMI_per_month"
+        id="Total_EMI_per_month"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Amount_invested_monthly">Amount invested monthly:</label
+      ><br />
+      <input
+        type="number"
+        name="Amount_invested_monthly"
+        id="Amount_invested_monthly"
+        step="0.01"
+        required
+      /><br />
+
+      <label for="Payment_Behaviour">Payment Behaviour:</label><br />
+      <input
+        type="text"
+        name="Payment_Behaviour"
+        id="Payment_Behaviour"
+        required
+      /><br />
+
+      <label for="Monthly_Balance">Monthly Balance:</label><br />
+      <input
+        type="number"
+        name="Monthly_Balance"
+        id="Monthly_Balance"
+        step="0.01"
+        required
+      /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
