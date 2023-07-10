@@ -109,10 +109,12 @@ def third_view(request):
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
         paymentBehavior = request.POST.get('Payment_Behaviour')
         preProcessing()
-        return render(request, 'result.html', {
-            'CustomerID': data.customerID
-        })
+        redirect('result_view')
     return render(request, 'third.html')
+
+
+def result_view(request):
+    return None
 
 
 def preProcessing():
