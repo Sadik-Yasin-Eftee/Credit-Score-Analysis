@@ -101,7 +101,6 @@ def second_view(request):
 
 def third_view(request):
     global creditMix, paymentOfMinAmount, paymentBehavior
-    data = CustomerData.objects.all()
     if request.method == 'POST':
         creditMix = request.POST.get('Credit_Mix')
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
@@ -113,8 +112,12 @@ def third_view(request):
     })
 
 
-# def result_view(request):
-#     return render(request, 'result.html')
+def cutomerList(request):
+    data = CustomerData.objects.all()
+    print(data)
+    return render(request, 'customerList.html', {
+        'customerList': data
+    })
 
 
 def preProcessing():
