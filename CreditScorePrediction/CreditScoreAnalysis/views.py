@@ -52,6 +52,7 @@ def generateCustomerID():
     lastCustomer = CustomerData.objects.order_by('customerID').first()
     if lastCustomer:
         lastID = int(lastCustomer.customerID)
+        # print(lastID)
         newID = lastID+1
     else:
         newID = 1
@@ -60,7 +61,7 @@ def generateCustomerID():
 
 
 def first_view(request):
-    global name, age, occupation, month, ssn, bankAccounts, numOfCreditCards, annualIncome, monthlyInhaldSalary, typeOfLoan, numOfLoan, interestRate
+    global name, age, occupation, month, ssn, bankAccounts, numOfCreditCards, annualIncome, monthlyInhaldSalary, numOfLoan, interestRate, changedCreditLimit
     if request.method == 'POST':
         name = request.POST.get('Name')
         age = int(request.POST.get('Age'))
@@ -72,42 +73,50 @@ def first_view(request):
         annualIncome = int(request.POST.get('Annual_Income'))
         monthlyInhaldSalary = np.float64(
             request.POST.get('Monthly_Inhald_Salary'))
-        typeOfLoan = request.POST.get('Type_of_Loan')
+        changedCreditLimit = np.float64(
+            request.POST.get('Changed_Credit_Limit'))
         numOfLoan = np.float64(request.POST.get('Num_of_Loan'))
         interestRate = np.float64(request.POST.get('Interest_Rate'))
+        # print(changedCreditLimit)
     return render(request, 'second.html')
 
 
 def second_view(request):
-    global delayFromDueDate, numOfDelayedPayment, changedCreditLimit, numOfCreditInquiries, outstandingDebt, creditUtilizationRatio, creditHistoryAge, totalEMIPerMonth, amountInvestedMonthly, monthlyBalance
+    global delayFromDueDate, numOfDelayedPayment, numOfCreditInquiries, outstandingDebt, creditUtilizationRatio, totalEMIPerMonth, amountInvestedMonthly, monthlyBalance, typeOfLoan
     if request.method == 'POST':
         delayFromDueDate = np.float64(request.POST.get('Delay_from_due_date'))
         numOfDelayedPayment = np.float64(
             request.POST.get('Num_of_Delayed_Payment'))
-        changedCreditLimit = np.float64(
-            request.POST.get('Changed_Credit_Limit'))
+        typeOfLoan = request.POST.get('Type_of_Loan')
         numOfCreditInquiries = np.float64(
             request.POST.get('Num_Credit_Inquiries'))
         outstandingDebt = np.float64(request.POST.get('Outstanding_Debt'))
         creditUtilizationRatio = np.float64(
             request.POST.get('Credit_Utilization_Ratio'))
-        creditHistoryAge = request.POST.get('Credit_History_Age')
         totalEMIPerMonth = np.float64(request.POST.get('Total_EMI_per_month'))
         amountInvestedMonthly = np.float64(
             request.POST.get('Amount_invested_monthly'))
         monthlyBalance = np.float64(request.POST.get('Monthly_Balance'))
+        # print(typeOfLoan)
     return render(request, 'third.html')
 
 
 def third_view(request):
-    global creditMix, paymentOfMinAmount, paymentBehavior
+    global creditMix, paymentOfMinAmount, paymentBehavior, creditHistoryAgeYear, creditHistoryAgeMonth
     if request.method == 'POST':
+        creditHistoryAgeYear = int(request.POST.get('Credit_History_Age_Year'))
+        creditHistoryAgeMonth = int(
+            request.POST.get('Credit_History_Age_Month'))
         creditMix = request.POST.get('Credit_Mix')
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
         paymentBehavior = request.POST.get('Payment_Behaviour')
-        creditScore = preProcessing()
-        # redirect('result_view')
+        print(creditHistoryAgeMonth)
+        print(creditHistoryAgeYear)
+        customerID, creditScore = preProcessing()
+        print(customerID, creditScore)
     return render(request, 'fourth.html', {
+        "customerName": name,
+        "customerID": customerID,
         "result": creditScore
     })
 
@@ -121,23 +130,23 @@ def cutomerList(request):
 
 
 def preProcessing():
-    # customerID = request.GET.get('Customer_ID')
     global name, age, occupation, month, ssn, bankAccounts, numOfCreditCards, annualIncome, monthlyInhaldSalary, typeOfLoan, numOfLoan, interestRate
 
-    global delayFromDueDate, numOfDelayedPayment, changedCreditLimit, numOfCreditInquiries, outstandingDebt, creditUtilizationRatio, creditHistoryAge, totalEMIPerMonth, amountInvestedMonthly, monthlyBalance
+    global delayFromDueDate, numOfDelayedPayment, changedCreditLimit, numOfCreditInquiries, outstandingDebt, creditUtilizationRatio, creditHistoryAgeYear, creditHistoryAgeMonth, totalEMIPerMonth, amountInvestedMonthly, monthlyBalance
 
     global creditMix, paymentOfMinAmount, paymentBehavior
 
     customerID = generateCustomerID()
-    print(name)
-    print(creditHistoryAge)
-    print(creditMix)
-
-    parts = creditHistoryAge.split()
-    years = np.float64(parts[0])
-    months = np.float64(parts[2])
-    totalMonths = years*12
+    # print(name)
+    # print(creditHistoryAgeYear, creditHistoryAgeMonth)
+    # print(creditMix)
+    totalMonths = creditHistoryAgeYear*12 + creditHistoryAgeMonth
     print(totalMonths)
+
+    creditHistoryAge = "{} Year{} {} Month{}".format(
+        creditHistoryAgeYear, 's' if creditHistoryAgeYear != 1 else '', creditHistoryAgeMonth, 's' if creditHistoryAgeMonth != 1 else '')
+
+    print(creditHistoryAge)
 
     lowCardinality = np.array([numOfCreditInquiries, bankAccounts,
                                numOfCreditCards, numOfLoan, numOfDelayedPayment])
@@ -210,9 +219,5 @@ def preProcessing():
                         monthlyBalance=monthlyBalance,
                         creditScore=y_pred)
     data.save()
-    return y_pred
-    # return render(request, 'result.html')
-
-# def predictor():
-#     print(name)
-#     return None
+    # resultList = [customerID, y_pred]
+    return customerID, y_pred

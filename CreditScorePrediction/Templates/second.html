@@ -1,5 +1,6 @@
 <!-- second.html -->
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,12 +9,14 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'second.css' %}" />
 
+    <!-- <link rel="stylesheet" href="second.css" /> -->
+
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
 
-    <title>Credit Score Second Page</title>
+    <title>Credit Score 2nd Page</title>
   </head>
 
   <body>
@@ -24,6 +27,8 @@
         {% csrf_token %}
         <div class="form second">
           <div class="details address">
+            <span class="title">Identity Details</span>
+
             <div class="fields">
               <div class="input-field">
                 <label for="delay_from_due_date">Delay from Due Date</label>
@@ -37,23 +42,47 @@
               </div>
 
               <div class="input-field">
+                <label for="type_of_loan" style="position: relative; top: 12px"
+                  >Loan Type</label
+                >
+                <br />
+
+                <select
+                  name="Type_of_Loan"
+                  class="form-select"
+                  aria-label="Default select example"
+                  style="position: relative; bottom: 12px"
+                >
+                  <option selected>Select Loan Type</option>
+
+                  <option value="Basic Loan">Basic Loan</option>
+                  <option value="Livestock Loan">Livestock Loan</option>
+                  <option value="House Loan">House Loan</option>
+                  <option value="Center House Loan">Center House Loan</option>
+                  <option value="Education Loan">Education Loan</option>
+                  <option value="Nursing Diploma and BSc Loan">
+                    Nursing Diploma and BSc Loan
+                  </option>
+                  <option value="Bridge Loan">Bridge Loan</option>
+                  <option value="Micro-Enterprise">Micro-Enterprise</option>
+                  <option value="Younger Enterprise Loan">
+                    Younger Enterprise Loan
+                  </option>
+                  <option value="Special Loan">Special Loan</option>
+                  <option value="Flexible Loan">Flexible Loan</option>
+                  <option value="Center Welfare Loan">
+                    Center Welfare Loan
+                  </option>
+                </select>
+              </div>
+
+              <div class="input-field">
                 <label for="num_of_delayed_payment">Delayed Payment</label>
                 <input
                   type="number"
                   id="num_of_delayed_payment"
                   name="Num_of_Delayed_Payment"
                   placeholder="Enter delayed payment"
-                  required
-                />
-              </div>
-
-              <div class="input-field">
-                <label for="changed_credit_limit">Changed Credit Limit</label>
-                <input
-                  type="number"
-                  id="changed_credit_limit"
-                  name="Changed_Credit_Limit"
-                  placeholder="Enter changed credit limit"
                   required
                 />
               </div>
@@ -89,17 +118,6 @@
                   id="credit_utilization_ratio"
                   name="Credit_Utilization_Ratio"
                   placeholder="Enter credit utilization ratio"
-                  required
-                />
-              </div>
-
-              <div class="input-field">
-                <label for="credit_history_age">Credit History Age</label>
-                <input
-                  type="text"
-                  id="credit_history_age"
-                  name="Credit_History_Age"
-                  placeholder="Enter credit history age"
                   required
                 />
               </div>
@@ -147,7 +165,7 @@
               <span class="btnText">Back</span>
             </div>
 
-            <button type="submit" class="next">
+            <button type="submit" class="nextBtn">
               <span class="btnText">Next</span>
               <i class="uil uil-navigator"></i>
             </button>

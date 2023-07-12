@@ -12,7 +12,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #4070f4;
+    background-image: url("ink.png");
+    background-size: cover;
 }
 
 .container{
@@ -41,7 +42,7 @@ body{
     height: 3px;
     width: 27px;
     border-radius: 8px;
-    background-color: #4070f4;
+    background-color: #21abcd;
 }
 
 .container form{
@@ -72,7 +73,9 @@ body{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    row-gap: 30px;
 }
+
 
 form .fields .input-field{
     display: flex;
@@ -113,6 +116,29 @@ form .fields .input-field{
     color: #333;
 }
 
+.buttons{
+    position: relative;
+    left: calc(37.5% - 100px);
+    top: 25px;
+}
+
+.container form button, .nextBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #21abcd;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
 .container form button, .backBtn{
     display: flex;
     align-items: center;
@@ -125,7 +151,7 @@ form .fields .input-field{
     color: #fff;
     border-radius: 5px;
     margin: 25px 0;
-    background-color: #4070f4;
+    background-color: #21abcd;
     transition: all 0.3s linear;
     cursor: pointer;
 }
@@ -136,7 +162,11 @@ form .fields .input-field{
 }
 
 form button:hover{
-    background-color: #265df2;
+    background-color: #8cbed6;
+}
+
+.backBtn:hover{
+    background-color: #8cbed6;
 }
 
 form button i,

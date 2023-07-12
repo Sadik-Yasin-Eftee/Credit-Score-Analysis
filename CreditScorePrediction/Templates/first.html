@@ -1,5 +1,6 @@
 <!-- first.html -->
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,12 +9,14 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'first.css' %}" />
 
+    <!-- <link rel="stylesheet" href="first.css"> -->
+
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
 
-    <title>Credit Score First Page</title>
+    <title>Credit Score 1st Page</title>
   </head>
   <body>
     <div class="container">
@@ -66,9 +69,9 @@
 
             <div class="fields">
               <div class="input-field">
-                <label>Month</label>
+                <label>Date of Requested Loan</label>
                 <input
-                  type="month"
+                  type="date"
                   id="month"
                   name="Month"
                   placeholder="Enter month"
@@ -132,18 +135,18 @@
               </div>
 
               <div class="input-field">
-                <label for="type_of_loan">Loan Type</label>
+                <label for="changed_credit_limit">Changed Credit Limit</label>
                 <input
-                  type="text"
-                  id="type_of_loan"
-                  name="Type_of_Loan"
-                  placeholder="Enter loan type"
+                  type="number"
+                  id="changed_credit_limit"
+                  name="Changed_Credit_Limit"
+                  placeholder="Enter changed credit limit"
                   required
                 />
               </div>
 
               <div class="input-field">
-                <label for="num_of_loan">Loan Number</label>
+                <label for="num_of_loan">Number of Loans</label>
                 <input
                   type="number"
                   id="num_of_loan"

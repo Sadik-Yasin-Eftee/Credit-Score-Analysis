@@ -31,16 +31,5 @@ class CustomerData(models.Model):
     monthlyBalance = models.FloatField()
     creditScore = models.CharField(max_length=100)
 
-    def save(self, *args, **kwargs):
-        if not self.customerID:
-            last_customer = CustomerData.objects.order_by(
-                '-customerID').first()
-            if last_customer:
-                last_id = int(last_customer.customerID)
-                self.customerID = str(last_id + 1).zfill(8)
-            else:
-                self.customerID = '00000001'
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.customerID

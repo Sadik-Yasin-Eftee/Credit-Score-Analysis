@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'third.css' %}" />
+    <!-- 
+    <link rel="stylesheet" href="third.css"> -->
 
     <link
       rel="stylesheet"
@@ -17,67 +19,111 @@
       rel="stylesheet"
     />
 
-    <title>Credit Score Third Page</title>
+    <title>Credit Score 3rd Page</title>
   </head>
 
   <body>
     <div class="container">
       <header>Credit Score Form</header>
+
       <form action="{% url 'third_view' %}" method="POST">
         {% csrf_token %}
+
         <div class="form third">
-          <label>Payment Behaviour</label><br />
-          <select
-            name="Payment_Behaviour"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option selected>Select Payment Behaviour</option>
-            <option value="Low spent Small value payments">
-              Low spent Small value payments
-            </option>
-            <option value="Low spent Medium value payments">
-              Low spent Medium value payments
-            </option>
-            <option value="Low spent Large value payments">
-              Low spent Large value payments
-            </option>
-            <option value="High spent Low value payments">
-              High spent Low value payments
-            </option>
-            <option value="High spent Medium value payments">
-              High spent Medium value payments
-            </option>
-            <option value="High spent Large value payments">
-              High spent Large value payments
-            </option>
-          </select>
-          <br />
+          <span class="title">Identity Details</span>
 
-          <label>Credit Mix</label><br />
-          <select
-            name="Credit_Mix"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option selected>Select Credit Mix</option>
-            <option value="Good">Good</option>
-            <option value="Standard">Standard</option>
-            <option value="Bad">Bad</option>
-          </select>
-          <br />
+          <div class="input-field">
+            <label
+              for="credit_history_age"
+              style="position: relative; left: 110px"
+              >Credit History Age</label
+            >
+            <br />
+            <input
+              type="number"
+              id="credit_history_age_year"
+              name="Credit_History_Age_Year"
+              placeholder="Enter year"
+              style="position: relative; left: 110px; width: 151px"
+              required
+            />
 
-          <label>Payment of Minimum Amount</label><br />
-          <select
-            name="Payment_of_Min_Amount"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option selected>Select Payment of Minimum Amount</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="NM">NM</option>
-          </select>
+            <input
+              type="number"
+              id="credit_history_age_month"
+              name="Credit_History_Age_Month"
+              placeholder="Enter months"
+              style="position: relative; left: 110px; width: 151px"
+              required
+            />
+
+            <br />
+
+            <label
+              for="Payment_Behaviour"
+              style="position: relative; left: 110px"
+              >Payment Behaviour</label
+            >
+            <br />
+            <select
+              name="Payment_Behaviour"
+              class="form-select"
+              aria-label="Default select example"
+              style="position: relative; left: 110px"
+            >
+              <option selected>Select Payment Behaviour</option>
+              <option value="Low spent Small value payments">
+                Low spent Small value payments
+              </option>
+              <option value="Low spent Medium value payments">
+                Low spent Medium value payments
+              </option>
+              <option value="Low spent Large value payments">
+                Low spent Large value payments
+              </option>
+              <option value="High spent Low value payments">
+                High spent Low value payments
+              </option>
+              <option value="High spent Medium value payments">
+                High spent Medium value payments
+              </option>
+              <option value="High spent Large value payments">
+                High spent Large value payments
+              </option>
+            </select>
+
+            <br />
+
+            <label style="position: relative; left: 110px">Credit Mix</label
+            ><br />
+            <select
+              name="Credit_Mix"
+              class="form-select"
+              aria-label="Default select example"
+              style="position: relative; left: 110px; width: 308px"
+            >
+              <option selected>Select Credit Mix</option>
+              <option value="Good">Good</option>
+              <option value="Standard">Standard</option>
+              <option value="Bad">Bad</option>
+            </select>
+            <br />
+
+            <label style="position: relative; left: 110px"
+              >Payment of Minimum Amount</label
+            ><br />
+            <select
+              name="Payment_of_Min_Amount"
+              class="form-select"
+              aria-label="Default select example"
+              style="position: relative; left: 110px"
+            >
+              <option selected>Select Payment of Minimum Amount</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="NM">NM</option>
+            </select>
+          </div>
 
           <div class="buttons">
             <div class="backBtn">
@@ -94,6 +140,6 @@
       </form>
     </div>
 
-    <script src="{% static 'js/third.js' %}"></script>
+    <!--<script src="{% static 'js/third.js' %}"></script> -->
   </body>
 </html>

@@ -10,11 +10,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #4070f4;
+    background-image: url("ink.png");
+    background-size: cover;
 }
 .container{
     position: relative;
-    max-width: 900px;
+    max-width: 600px;
     width: 100%;
     border-radius: 6px;
     padding: 30px;
@@ -36,8 +37,9 @@ body{
     height: 3px;
     width: 27px;
     border-radius: 8px;
-    background-color: #4070f4;
+    background-color: #21abcd;
 }
+
 .container form{
     position: relative;
     margin-top: 16px;
@@ -45,27 +47,7 @@ body{
     background-color: #fff;
     overflow: hidden;
 }
-.container form .form{
-    position: absolute;
-    background-color: #fff;
-    transition: 0.3s ease;
-}
-.container form .form.second{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-}
 
-form.secActive .form.second{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
-form.secActive .form.first{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%);
-}
 .container form .title{
     display: block;
     margin-bottom: 8px;
@@ -74,23 +56,28 @@ form.secActive .form.first{
     margin: 6px 0;
     color: #333;
 }
+
+
 .container form .fields{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 form .fields .input-field{
     display: flex;
     width: calc(100% / 3 - 15px);
     flex-direction: column;
     margin: 4px 0;
 }
+
 .input-field label{
     font-size: 12px;
     font-weight: 500;
     color: #2e2e2e;
 }
+
 .input-field input, select{
     outline: none;
     font-size: 14px;
@@ -102,6 +89,7 @@ form .fields .input-field{
     height: 42px;
     margin: 8px 0;
 }
+
 .input-field input :focus,
 .input-field select:focus{
     box-shadow: 0 3px 6px rgba(0,0,0,0.13);
@@ -113,6 +101,13 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
     color: #333;
 }
+
+.buttons{
+    position: relative;
+    left: calc(30% - 100px);
+    top: 25px;
+}
+
 .container form button, .backBtn{
     display: flex;
     align-items: center;
@@ -125,17 +120,33 @@ form .fields .input-field{
     color: #fff;
     border-radius: 5px;
     margin: 25px 0;
-    background-color: #4070f4;
+    background-color: #21abcd;
     transition: all 0.3s linear;
     cursor: pointer;
 }
+
+.container form .submit{
+    background-color: #92a1cf;
+}
+
+.container form .submit:hover{
+    background-color: #b0c4de;
+}
+
 .container form .btnText{
     font-size: 14px;
     font-weight: 400;
 }
 form button:hover{
-    background-color: #265df2;
+    background-color: #8cbed6;
 }
+
+.backBtn:hover{
+    background-color: #8cbed6;
+}
+
+
+
 form button i,
 form .backBtn i{
     margin: 0 6px;
@@ -151,76 +162,6 @@ form .buttons button , .backBtn{
     margin-right: 14px;
 }
 
-.select-menu{
-    font-size: 12px;
-    font-weight: 500;
-    color: #2e2e2e;
-}
-
-.select-menu .select-btn{
-    display: flex;
-    height: 42px;
-    width: 265px;
-    margin: 8px 0;
-    color: #707070;
-    background: #fff;
-    padding: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-    align-items: center;
-    padding: 0 15px;
-    cursor: pointer;
-    justify-content: space-between;
-}
-
-.select-btn i{
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.select-menu.active .select-btn i{
-    transform: rotate(-180deg);
-}
-
-.select-menu .options{
-    position: relative;
-    padding: 20px;
-    margin-top: 5px;
-    border-radius: 5px;
-    background: #fff;
-    border: 1px solid #aaa;
-}
-
-.select-menu.active .options{
-    display: none;
-}
-
-.options .option{
-    display: flex;
-    height: 25px;
-    cursor: pointer;
-    padding: 0 15px;
-    border-radius: 5px;
-    align-items: center;
-    background: #fff;
-}
-
-.options .option:hover{
-    background: #f2f2f2;
-}
-
-.option i{
-    font-size: 14px;
-    margin-right: 5px;
-}
-
-.option .option-text{
-    font-size: 14px;
-    font-weight: 400;
-    color: #333;
-}
 
 @media (max-width: 750px) {
     .container form{
