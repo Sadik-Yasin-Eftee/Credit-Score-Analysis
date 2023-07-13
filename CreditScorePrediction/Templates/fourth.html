@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'third.css' %}" />
+    <link rel="stylesheet" href="{% static 'fourth.css' %}" />
 
     <!-- <link rel="stylesheet" href="fourth.css"> -->
 
@@ -22,21 +22,32 @@
     <div class="container">
 
         <header>Credit Score Result</header>
-            <div class="popup">
+
+        <div class="form">
+          <div class="popup">
         
-                <h2>{{result}}</h2>
-        
-                <p style="color: #6a6c6d;"> <b>
-                  Customer ID:
+            <h2 style="position: relative; top: 10%;">{{result}}</h2>
+            
+            <div class="details" 
+                  style="text-align: left; 
+                        position: relative;
+                        left: 5%;
+                        top: 22.5%;">
+
+              <p style="color: #6a6c6d;"> <b>
+                Customer ID:
                 </b> {{customerID}}</p>
-                <p style="color: #6a6c6d;"> <b>
-                  Customer Name:
+  
+              <p style="color: #6a6c6d;"> <b>
+                Customer Name:
                 </b> {{customerName}}</p>
-        
-                <div class="button" style="position: relative; left: 92.5px; top: 140px;">
-                    <span class="button">Ok</span>
-                </div>
             </div>
+        
+            <div class="button" style="position: relative; left: 92.5px; top: 100px;">
+              <span class="button">Ok</span>
+            </div>
+          </div>
+        </div>
     <!--<script src="{% static 'js/third.js' %}"></script> -->
   </body>
 </html>

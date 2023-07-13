@@ -41,7 +41,7 @@ body{
     background-color: #21abcd;
 }
 
-.container form{
+.form{
     position: relative;
     margin-top: 16px;
     min-height: 400px;
