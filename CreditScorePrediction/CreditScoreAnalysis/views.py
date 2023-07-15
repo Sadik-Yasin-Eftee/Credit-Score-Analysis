@@ -124,7 +124,7 @@ def third_view(request):
 def cutomerList(request):
     data = CustomerData.objects.all()
     print(data)
-    return render(request, 'customerList.html', {
+    return render(request, 'member.html', {
         'customerList': data
     })
 
