@@ -44,7 +44,11 @@ paymentOfMinAmount = None
 paymentBehavior = None
 
 
-def Welcome(request):
+def welcome(request):
+    return render(request, "home.html")
+
+
+def formPage(request):
     return render(request, 'first.html')
 
 
