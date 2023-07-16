@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 
 import numpy as np
 import pandas as pd
@@ -15,6 +16,7 @@ from xgboost import XGBClassifier
 from .models import CustomerData
 
 model = load('./SaveModel/newFinalModel2.h5')
+models = load('./SaveModel/models')
 # model2 = load('./SaveModel/newFinalModel.h5')
 
 name = None
@@ -189,20 +191,34 @@ def preProcessing():
     X = np.concatenate([numeric, one_hot, lowCardinality], axis=1)
     print(X)
 
-    y_pred = model.predict(X)
-    print(y_pred[0])
+    # y_pred = model.predict(X)
+    # print(y_pred[0])
+    predictions = []
+    for model_name, model in models.items():
+        preds = model.predict(X)
+        predictions.append(preds)
+
+    # Perform majority voting to get the final prediction
+    y_pred = []
+    for i in range(len(X)):
+        counts = Counter([preds[i] for preds in predictions])
+        majority_vote = counts.most_common(1)[0][0]
+        y_pred.append(majority_vote)
+
+    # Print the final prediction
+    print("Final prediction:", y_pred[0])
 
     # y_pred2 = model2.predict(X)
     # print(y_pred2[0])
 
-    if y_pred == 0:
-        y_pred = "Good"
-    elif y_pred == 1:
-        y_pred = "Bad"
+    if y_pred[0] == 0:
+        y_pred[0] = "Good"
+    elif y_pred[0] == 1:
+        y_pred[0] = "Bad"
     else:
-        y_pred = "Standard"
+        y_pred[0] = "Standard"
 
-    print(y_pred)
+    print(y_pred[0])
 
     data = CustomerData(customerID=customerID, month=month, name=name, age=age, ssn=ssn,
                         occupation=occupation, annualIncome=annualIncome,
@@ -221,7 +237,7 @@ def preProcessing():
                         amountInvestedMonthly=amountInvestedMonthly,
                         paymentBehavior=paymentBehavior,
                         monthlyBalance=monthlyBalance,
-                        creditScore=y_pred)
+                        creditScore=y_pred[0])
     data.save()
     # resultList = [customerID, y_pred]
-    return customerID, y_pred
+    return customerID, y_pred[0]
