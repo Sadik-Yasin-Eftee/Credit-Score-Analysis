@@ -63,6 +63,7 @@ def profile_view(request, customer_id):
 def generateCustomerID():
     lastCustomer = CustomerData.objects.order_by('customerID').first()
     print(lastCustomer)
+    print(type(lastCustomer.customerID))
     if lastCustomer:
         lastID = int(lastCustomer.customerID)
         print(lastID)

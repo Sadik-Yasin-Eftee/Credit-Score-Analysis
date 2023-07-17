@@ -45,7 +45,7 @@
                       "
                       >ID</label
                     >
-                    <p class="cus">hello</p>
+                    <p class="cus">{{ customer_data.customerID }}</p>
                   </div>
                 </div>
 
@@ -64,7 +64,7 @@
                       "
                       >Name</label
                     >
-                    <p class="cus">hello</p>
+                    <p class="cus">{{ customer_data.name }}</p>
                   </div>
                 </div>
 
@@ -83,7 +83,7 @@
                       "
                       >Occupation</label
                     >
-                    <p class="cus">hello</p>
+                    <p class="cus">{{ customer_data.occupation }}</p>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@
                       "
                       >Age</label
                     >
-                    <p class="cus">hello</p>
+                    <p class="cus">{{ customer_data.age }}</p>
                   </div>
                 </div>
               </div>
@@ -120,9 +120,9 @@
                       class="small mb-1"
                       for="month"
                       style="font-size: 12px; font-weight: 500"
-                      >Month</label
+                      >Date of Requested Loan</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.month }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -132,7 +132,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >SSN</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.ssn }}</p>
                   </div>
                 </div>
 
@@ -144,7 +144,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Number of Bank Accounts</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.bankAccounts }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -154,7 +154,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Number Credit Cards</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.numOfCreditCards }}</p>
                   </div>
                 </div>
 
@@ -166,7 +166,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Annual Income</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.annualIncome }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -176,7 +176,9 @@
                       style="font-size: 12px; font-weight: 500"
                       >Monthly Inhand Salary</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">
+                      {{ customer_data.monthlyInhaldSalary }}
+                    </p>
                   </div>
                 </div>
 
@@ -188,7 +190,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Changed Credit Limit</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.changedCreditLimit }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -198,7 +200,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Loan Number</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.numOfLoan }}</p>
                   </div>
                 </div>
 
@@ -210,7 +212,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Interest Rate</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.interestRate }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -220,7 +222,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Loan Type</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.typeOfLoan }}</p>
                   </div>
                 </div>
 
@@ -232,7 +234,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Delay from Due Date</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.delayFromDueDate }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -240,9 +242,11 @@
                       class="small mb-1"
                       for="num_of_delayed_payment"
                       style="font-size: 12px; font-weight: 500"
-                      >Delayed Payment</label
+                      >Number of Delayed Payments</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">
+                      {{ customer_data.numOfDelayedPayment }}
+                    </p>
                   </div>
                 </div>
 
@@ -254,7 +258,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Outstanding Debt</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.outstandingDebt }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -264,7 +268,9 @@
                       style="font-size: 12px; font-weight: 500"
                       >Credit Utilization Ratio</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">
+                      {{ customer_data.creditUtilizationRatio }}
+                    </p>
                   </div>
                 </div>
 
@@ -276,7 +282,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Total EMI Per Month</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.totalEMIPerMonth }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -286,7 +292,9 @@
                       style="font-size: 12px; font-weight: 500"
                       >Monthly Invested Amount</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">
+                      {{ customer_data.amountInvestedMonthly }}
+                    </p>
                   </div>
                 </div>
 
@@ -298,7 +306,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Monthly Balance</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.monthlyBalance }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -308,7 +316,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Credit History Age</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.creditHistoryAge }}</p>
                   </div>
                 </div>
 
@@ -320,7 +328,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Payment Behaviour</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.paymentBehavior }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -330,7 +338,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Credit Mix</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.creditMix }}</p>
                   </div>
                 </div>
 
@@ -342,7 +350,7 @@
                       style="font-size: 12px; font-weight: 500"
                       >Payment of Minimum Amount</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">{{ customer_data.paymentOfMinAmount }}</p>
                   </div>
 
                   <div class="col-md-6">
@@ -352,7 +360,9 @@
                       style="font-size: 12px; font-weight: 500"
                       >Credit Inquiry Number</label
                     >
-                    <p class="outset">hello</p>
+                    <p class="outset">
+                      {{ customer_data.numOfCreditInquiries }}
+                    </p>
                   </div>
                 </div>
               </form>
