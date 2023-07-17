@@ -64,13 +64,10 @@ def profile_view(request, customer_id):
 def generateCustomerID():
     lastCustomer = CustomerData.objects.all().aggregate(Max('customerID'))
     lastID = lastCustomer['customerID__max']
-    print(lastID)
-
     if lastID:
         newID = int(lastID) + 1
     else:
         newID = 1
-
     customerID = str(newID).zfill(8)
     return customerID
 
@@ -112,7 +109,8 @@ def second_view(request):
         amountInvestedMonthly = np.float64(
             request.POST.get('Amount_invested_monthly'))
         monthlyBalance = np.float64(request.POST.get('Monthly_Balance'))
-        # print(typeOfLoan)
+        print(numOfCreditInquiries)
+        print(type(numOfCreditInquiries))
     return render(request, 'third.html')
 
 
@@ -125,8 +123,6 @@ def third_view(request):
         creditMix = request.POST.get('Credit_Mix')
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
         paymentBehavior = request.POST.get('Payment_Behaviour')
-        print(creditHistoryAgeMonth)
-        print(creditHistoryAgeYear)
         customerID, creditScore = preProcessing()
         print(customerID, creditScore)
     return render(request, 'fourth.html', {
@@ -138,7 +134,6 @@ def third_view(request):
 
 def cutomerList(request):
     data = CustomerData.objects.all()
-    print(data)
     return render(request, 'member.html', {
         'customerList': data
     })
@@ -152,19 +147,13 @@ def preProcessing():
     global creditMix, paymentOfMinAmount, paymentBehavior
 
     customerID = generateCustomerID()
-    # print(name)
-    # print(creditHistoryAgeYear, creditHistoryAgeMonth)
-    # print(creditMix)
-    totalMonths = creditHistoryAgeYear*12 + creditHistoryAgeMonth
-    print(totalMonths)
 
+    totalMonths = creditHistoryAgeYear*12 + creditHistoryAgeMonth
     creditHistoryAge = "{} Year{} {} Month{}".format(
         creditHistoryAgeYear, 's' if creditHistoryAgeYear != 1 else '', creditHistoryAgeMonth, 's' if creditHistoryAgeMonth != 1 else '')
 
-    print(creditHistoryAge)
-
     lowCardinality = np.array([numOfCreditInquiries, bankAccounts,
-                               numOfCreditCards, numOfLoan, numOfDelayedPayment])
+                               numOfCreditCards, numOfLoan, numOfDelayedPayment], dtype=np.float64)
     # Reshape lowCardinality array to (1, -1)
     lowCardinality = np.reshape(lowCardinality, (1, -1))
     print(lowCardinality)
@@ -200,8 +189,6 @@ def preProcessing():
     X = np.concatenate([numeric, one_hot, lowCardinality], axis=1)
     print(X)
 
-    # y_pred = model.predict(X)
-    # print(y_pred[0])
     predictions = []
     for model_name, model in models.items():
         preds = model.predict(X)
@@ -216,9 +203,6 @@ def preProcessing():
 
     # Print the final prediction
     print("Final prediction:", y_pred[0])
-
-    # y_pred2 = model2.predict(X)
-    # print(y_pred2[0])
 
     if y_pred[0] == 0:
         y_pred[0] = "Good"
@@ -248,5 +232,4 @@ def preProcessing():
                         monthlyBalance=monthlyBalance,
                         creditScore=y_pred[0])
     data.save()
-    # resultList = [customerID, y_pred]
     return customerID, y_pred[0]
