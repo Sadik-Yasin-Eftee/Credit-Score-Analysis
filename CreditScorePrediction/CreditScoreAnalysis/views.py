@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import xgboost as xgb
 from catboost import CatBoostClassifier
+from django.db.models import Max
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from joblib import load
@@ -61,16 +62,15 @@ def profile_view(request, customer_id):
 
 
 def generateCustomerID():
-    lastCustomer = CustomerData.objects.order_by('customerID').first()
-    print(lastCustomer)
-    print(type(lastCustomer.customerID))
-    if lastCustomer:
-        lastID = int(lastCustomer.customerID)
-        print(lastID)
-        print(type(lastID))
-        newID = lastID+1
+    lastCustomer = CustomerData.objects.all().aggregate(Max('customerID'))
+    lastID = lastCustomer['customerID__max']
+    print(lastID)
+
+    if lastID:
+        newID = int(lastID) + 1
     else:
         newID = 1
+
     customerID = str(newID).zfill(8)
     return customerID
 
