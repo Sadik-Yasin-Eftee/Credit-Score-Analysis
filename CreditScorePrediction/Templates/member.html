@@ -35,6 +35,10 @@
               <th>Name</th>
               <th>Occupation</th>
               <th>Age</th>
+              <th>Credit History Age</th>
+              <th>Outstanding Debt</th>
+              <th>Delay from Due Date</th>
+              <th>Interest rate</th>
               <th>Credit Score</th>
               <th>Show Details</th>
             </tr>
@@ -47,6 +51,10 @@
               <td>{{ data.name }}</td>
               <td>{{ data.occupation }}</td>
               <td>{{ data.age }}</td>
+              <td>{{ data.creditHistoryAge }}</td>
+              <td>{{ data.outstandingDebt }}</td>
+              <td>{{ data.delayFromDueDate }}</td>
+              <td>{{ data.interestRate }}</td>
               <td>{{ data.creditScore }}</td>
               <td>
                 <a href="{% url 'profile_view' data.customerID %}" class="cool"

@@ -120,6 +120,11 @@ def third_view(request):
         creditHistoryAgeYear = int(request.POST.get('Credit_History_Age_Year'))
         creditHistoryAgeMonth = int(
             request.POST.get('Credit_History_Age_Month'))
+
+        if creditHistoryAgeMonth > 12:
+            creditHistoryAgeYear += creditHistoryAgeMonth // 12
+            creditHistoryAgeMonth = creditHistoryAgeMonth % 12
+
         creditMix = request.POST.get('Credit_Mix')
         paymentOfMinAmount = request.POST.get('Payment_of_Min_Amount')
         paymentBehavior = request.POST.get('Payment_Behaviour')
