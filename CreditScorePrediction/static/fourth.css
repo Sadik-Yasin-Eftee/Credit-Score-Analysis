@@ -10,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("image/ink.png");
+  background-image: url("image/mar.jpg");
   background-size: cover;
 }
 .container {
@@ -20,7 +20,7 @@ body {
   border-radius: 6px;
   padding: 30px;
   margin: 0 15px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .container header {
@@ -38,14 +38,14 @@ body {
   height: 3px;
   width: 27px;
   border-radius: 8px;
-  background-color: #21abcd;
+  background-color: #6699ff;
 }
 
 .form {
   position: relative;
   margin-top: 16px;
   min-height: 400px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   overflow: hidden;
 }
 
@@ -87,7 +87,7 @@ body {
   color: #fff;
   border-radius: 5px;
   margin: 25px 0;
-  background-color: #92a1cf;
+  background-color: #f6adc6;
   transition: all 0.3s linear;
   cursor: pointer;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 .button:hover {
-  background-color: #b0c4de;
+  background-color: #fbcce7;
 }
 
 @media (max-width: 750px) {

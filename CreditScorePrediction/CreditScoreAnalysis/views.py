@@ -15,7 +15,7 @@ from xgboost import XGBClassifier
 
 from .models import CustomerData
 
-model = load('./SaveModel/newFinalModel2.h5')
+# model = load('./SaveModel/newFinalModel2.h5')
 models = load('./SaveModel/models')
 # model2 = load('./SaveModel/newFinalModel.h5')
 
@@ -56,9 +56,11 @@ def formPage(request):
 
 def generateCustomerID():
     lastCustomer = CustomerData.objects.order_by('customerID').first()
+    print(lastCustomer)
     if lastCustomer:
         lastID = int(lastCustomer.customerID)
-        # print(lastID)
+        print(lastID)
+        print(type(lastID))
         newID = lastID+1
     else:
         newID = 1
@@ -76,7 +78,7 @@ def first_view(request):
         ssn = request.POST.get('SSN')
         bankAccounts = int(request.POST.get('Num_Bank_Accounts'))
         numOfCreditCards = int(request.POST.get('Num_Credit_Card'))
-        annualIncome = int(request.POST.get('Annual_Income'))
+        annualIncome = np.float64(request.POST.get('Annual_Income'))
         monthlyInhaldSalary = np.float64(
             request.POST.get('Monthly_Inhald_Salary'))
         changedCreditLimit = np.float64(

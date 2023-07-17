@@ -162,7 +162,7 @@
           <div class="buttons">
             <div class="backBtn">
               <i class="uil uil-navigator"></i>
-              <span class="btnText">Back</span>
+              <span class="btnText" onclick="goBack()">Back</span>
             </div>
             <button type="submit" class="nextBtn">
               <span class="btnText">Next</span>
@@ -172,5 +172,10 @@
         </div>
       </form>
     </div>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>

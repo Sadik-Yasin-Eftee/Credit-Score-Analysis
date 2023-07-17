@@ -12,7 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("image/ink.png");
+  background-image: url("image/mar.jpg");
   background-size: cover;
 }
 
@@ -23,7 +23,7 @@ body {
   border-radius: 6px;
   padding: 30px;
   margin: 0 15px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,20 +42,20 @@ body {
   height: 3px;
   width: 27px;
   border-radius: 8px;
-  background-color: #21abcd;
+  background-color: #6699ff;
 }
 
 .container form {
   position: relative;
   margin-top: 16px;
   min-height: 490px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   overflow: hidden;
 }
 
 .container form .form {
   position: absolute;
-  background-color: #fff;
+  background-color: #f2f2f2;
   transition: 0.3s ease;
 }
 
@@ -130,7 +130,7 @@ select {
   color: #fff;
   border-radius: 5px;
   margin: 25px 0;
-  background-color: #21abcd;
+  background-color: #6699ff;
   transition: all 0.3s linear;
   cursor: pointer;
 }
@@ -141,7 +141,7 @@ select {
 }
 
 form button:hover {
-  background-color: #8cbed6;
+  background-color: #b3ccff;
 }
 
 form button i,
