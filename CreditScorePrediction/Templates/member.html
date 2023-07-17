@@ -48,7 +48,11 @@
               <td>{{ data.occupation }}</td>
               <td>{{ data.age }}</td>
               <td>{{ data.creditScore }}</td>
-              <td><a href="" class="cool">Show More</a></td>
+              <td>
+                <a href="{% url 'profile_view' data.customerID %}" class="cool"
+                  >Show More</a
+                >
+              </td>
             </tr>
             {% endfor %}
           </tbody>

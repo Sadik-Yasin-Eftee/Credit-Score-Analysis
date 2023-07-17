@@ -6,7 +6,7 @@ import pandas as pd
 import xgboost as xgb
 from catboost import CatBoostClassifier
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from joblib import load
 from lightgbm import LGBMClassifier
 from sklearn.preprocessing import (OneHotEncoder, PowerTransformer,
@@ -52,6 +52,12 @@ def welcome(request):
 
 def formPage(request):
     return render(request, 'first.html')
+
+
+def profile_view(request, customer_id):
+    customerData = get_object_or_404(CustomerData, customerID=customer_id)
+    context = {'customer_data': customerData}
+    return render(request, 'details.html', context)
 
 
 def generateCustomerID():
