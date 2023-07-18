@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'first.css' %}" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <!-- <link rel="stylesheet" href="first.css"> -->
 
@@ -19,6 +23,9 @@
     <title>Credit Score 1st Page</title>
   </head>
   <body>
+    <button class="b">
+      <a href="{% url 'welcome' %}"><i class="bx bx-home"></i></a>
+    </button>
     <div class="container">
       <header>Credit Score Form</header>
 

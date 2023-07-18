@@ -16,6 +16,22 @@ body {
   background-size: cover;
 }
 
+.b {
+  color: #003c6b;
+  position: fixed;
+  left: 30px;
+  bottom: 85%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.b:hover {
+  color: #fff;
+}
+
 .container {
   position: relative;
   max-width: 800px;

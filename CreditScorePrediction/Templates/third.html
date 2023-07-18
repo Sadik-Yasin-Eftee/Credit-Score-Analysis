@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="{% static 'third.css' %}" />
     <!-- 
     <link rel="stylesheet" href="third.css"> -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -23,6 +27,9 @@
   </head>
 
   <body>
+    <button class="b">
+      <a href="{% url 'welcome' %}"><i class="bx bx-home"></i></a>
+    </button>
     <div class="container">
       <header>Credit Score Form</header>
 
